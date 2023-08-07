@@ -3,7 +3,7 @@ from time import sleep
 
 class Motor:
     PulseSpeed = 1
-    
+    AngleToMove = 1
     
     #set pin numbering system
     GPIO.setmode(GPIO.BOARD)
@@ -53,6 +53,10 @@ class Motor:
     def SetPulseSpeed(self,Value):
         global PulseSpeed
         PulseSpeed = Value
+        
+    def SetAngle(self,Value):
+        global AngleToMove
+        AngleToMove = Value
             
         
     def RunMotorIndividually(self):
@@ -76,11 +80,14 @@ class Motor:
                 
                 input_state = GPIO.input(self.Limit_Switch)
                 
+                #should be the angle that mainly stop it
                 if (input_state == True):
                     print("Limit Switch Triggered")
                     GPIO.output(self.Enable,0)
                     return
-                    
+                
+                #PUT A CASE where if it hit a certain angle it stops moving
+                #varable for angle "AngleToMove"
         
         
         #run Motor
@@ -123,8 +130,3 @@ class Motor:
                     print("Limit Switch C Triggered")
                     GPIO.output(self.Enable,0)
                     return
-                    
-        print("Outside for Loop")
-                
-                
-                

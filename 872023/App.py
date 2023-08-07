@@ -40,14 +40,16 @@ MotorA.SetPulseSpeed(Pulse_Speed) #Pulse_Speed
 MotorB.SetPulseSpeed(Pulse_Speed) #Pulse_Speed1
 MotorC.SetPulseSpeed(Pulse_Speed) #Pulse_Speed2
 
+MotorA.SetAngle(SomeAngle)
+MotorB.SetAngle(SomeAngle)
+MotorC.SetAngle(SomeAngle)
+
 #Run Motors
 #MotorA.RunMotor()
 #MotorB.RunMotor() 
 #MotorC.RunMotor()
 
 MultiMultor1 = Multiplemotors()
-
-
 MultiMultor1.RunBothMotors(MotorA,MotorB,MotorC,Different_Case)
 
 
